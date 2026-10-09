@@ -1,0 +1,229 @@
+/* == CORE: basic functional layout
+https://otwcode.github.io/docs/stylesheets-views.html#core 
+*/
+
+#outer.App{
+    float: left;
+    width: 100%;
+}
+
+#outer {
+    background: #fff;
+    font-size: 0.875em;
+    position: relative;
+}
+
+#pages{
+  position: static;
+    float: none;
+    margin: auto;
+    padding-top: 3em;
+    padding-left: 3.5%;
+    padding-right: 3.5%;
+    width: auto;
+}
+
+body, .toggled form, .dynamic form, .secondary, .dropdown {
+  background: #fff;
+  font: 100%/1.125 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Helvetica, sans-serif, 'GNU Unifont';
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  vertical-align: baseline;
+  list-style: none;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td
+
+ {
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, .heading {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+
+
+.heading {
+
+  font-family: Georgia, serif;
+}
+
+a, a:link {
+  text-decoration: none;
+}
+
+#header{
+    font-size: 0.875em;
+    margin: 0 0 1em;
+    padding: 0;
+    position: relative;
+}
+
+#header, #footer, #main, #dashboard {
+  padding: 1em 3em;
+}
+
+#header a{
+    color: #111;
+}
+
+.landmark {
+  font-size: 0;
+  opacity: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+li.blurb, fieldset, form dl {
+  border: 1px solid #ddd;
+  padding: 1em;
+  overflow: hidden;
+}
+
+.blurb li, .actions>*, .stats>*, .meta ul li {
+  list-style: none;
+  display: inline;
+  padding-left: 0.25em;
+}
+
+p, li, dd, hr {
+    margin: 0.643em 0;
+}
+
+input, textarea {
+  font: 100% 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Helvetica, sans-serif, 'GNU Unifont';
+  width: 100%;
+  outline: none;
+  border: 1px solid #bbb;
+  box-shadow: inset 0 1px 2px #ccc;
+}
+/* Small Text area */
+textarea {
+  min-height: 12em;
+}
+
+/*Larger text area = main content */
+textarea.large {
+  height: 66em;
+  width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+  background: #f3efec;
+  outline: black 1px;
+}
+
+
+#workskin {
+  font-size: 1.08em;
+  margin: auto;
+  padding: 0 0.25em;
+  max-width: 72em;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+    display: block;
+    unicode-bidi: isolate;
+}
+
+header {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+#header li {
+    display: block;
+    float: left;
+    margin: 0 0.125em;
+    position: relative;
+    z-index: 10;
+}
+
+#logo{
+  height: 1.75em;
+}
+
+#header .heading {
+    float: left;
+    padding: 0.375em;
+}
+
+#header .heading a {
+    color: #900;
+    font-size: 1.714em;
+    line-height: 1.75em;
+}
+
+.path{
+    margin: 0 0.125em;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+}
+
+nav {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+#greeting{
+    margin-right: 0.375em;
+    float: right;
+}
+
+#header .links{
+    padding: 0.429em 0 0;
+    z-index: 20;
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+}
+
+#header {
+    font-size: 0.875em;
+    margin: 0 0 3em;
+    padding: 0;
+    padding-bottom: 2em;
+    position: relative;
+}
+
+#header a, #header fieldset, #header form, #header p, #header li, #header h1, #small_login dl {
+    background: transparent;
+    font-size: 100%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.actions a, .actions a:link, .action, .action:link, .actions button, .actions input, input[type="submit"], button, .current, .actions label {
+    background: #eee;
+    color: #444;
+    width: auto;
+}
