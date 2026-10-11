@@ -1,0 +1,20 @@
+.preface{
+    margin: 1.5em 3em;
+    padding: 0.643em 0.643em 0;
+    float: none;
+}
+
+.work-title{
+    border: 0;
+    text-align: center;
+    display: block;
+    border-bottom: 0;
+    clear: right;
+}
+
+h1, h2, h3, h4, h5, h6, .heading {
+    color: #2a2a2a;
+    font-family: Georgia, serif;
+    font-weight: 400;
+    word-wrap: break-word;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Notes.css';
+import './NewWork.css';
 import '../Main.css';
 
 function CreateNotes(){

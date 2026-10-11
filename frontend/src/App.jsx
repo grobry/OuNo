@@ -4,7 +4,8 @@ import './Main.css'
 //pages and components
 import Home from './pages/Home'
 import Navbar from './components/Navbar.jsx'
-import CreateNotes from './pages/Notes.jsx'
+import CreateNotes from './pages/NewWork.jsx'
+import Work from './pages/Work.jsx'
 
 function App() {
   return (
@@ -20,6 +21,10 @@ function App() {
           <Route
             path = "/new"
             element = {<CreateNotes/>}
+            />
+          <Route
+            path = "/work"
+            element = {<Work/>}
             />
           </Routes>
         </div>
