@@ -15,13 +15,28 @@ const Navbar = () => {
                 <nav id = "greeting">
                     <ul class = "links bar">
                         <li>
-                            <Link to="/new">
+                            <Link to="/new" className= 'link-text'>
                                 <a>Post</a>
                             </Link>
                         </li>
                         <li>
-                            <Link to="/new">
-                                <a>Profile</a>
+                            <Link to="/Template" className= 'link-text'>
+                                <a>Template</a>
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
+                {/* Dummy info */}
+                <nav id = "sitebar">
+                    <ul class = "barlist">
+                        <li>
+                            <Link to="/Work" className = "bar-text">
+                                <a>User</a>
+                            </Link>
+                        </li>
+                            <li>
+                            <Link to="/Work" className = "bar-text">
+                                <a>User</a>
                             </Link>
                         </li>
                     </ul>

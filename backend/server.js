@@ -3,12 +3,15 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const studyRoutes = require('./routes/studies')
+const cors = require("cors")
 
 //express app stored in this const
 const backdoor = express()
 
 //middleware - checks if request has body, attatches it to request body if so
 backdoor.use(express.json())
+
+backdoor.use(cors())
 
 backdoor.use((req, res, next) => {
     console.log(req.path, req.method)

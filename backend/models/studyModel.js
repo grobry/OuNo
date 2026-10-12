@@ -12,6 +12,10 @@ const studySchema = new Schema({
     notes: {
         type: String,
         required: true
+    },
+    summary: {
+        type: String,
+        required: false
     }
     // ,
     // date: {

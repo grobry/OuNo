@@ -29,10 +29,10 @@ const getStudy = async (req, res) => {
 
 //create a new study
 const createStudy = async (req, res) => {
-    const {title, notes} = req.body
+    const {title, notes, summary} = req.body
 
     try{
-        const study = await Study.create({title, notes})
+        const study = await Study.create({title, notes, summary})
         res.status(200).json(study)
     } catch (error) {
         res.status(400).json({error: error.message})
