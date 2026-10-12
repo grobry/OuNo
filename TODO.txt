@@ -1,0 +1,3 @@
+resolve pre production api calls
+frontend - vite.config.js 'proxy'
+frontend - Home.jsx - const response  ~line 10
