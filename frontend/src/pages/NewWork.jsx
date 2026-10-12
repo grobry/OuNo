@@ -1,15 +1,45 @@
-import React from 'react';
+import { useState } from 'react';
 import './NewWork.css';
 import '../Main.css';
 
-function CreateNotes(){
-    const [summaryText, setSummaryText] = React.useState('');
-    const [studyText, setStudyText] = React.useState('');    
-    const [titleText, setTitleText] = React.useState('');
+const CreateNotes = () => {
+    const [title, setTitleText] = useState('');
+    const [summary, setSummaryText] = useState('');
+    const [notes, setNotesText] = useState('');
+    const [error, setError] = useState('');    
+    
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        const study = {title, summary, notes}
+        console.log("attempting post to middleware....")
+
+        const response = await fetch('/api/studies', {
+            method: 'POST',
+            body: JSON.stringify(study),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        const json = await response.json()
+
+        if(!response.ok){
+            setError(json.error)
+            console.log(error)
+        }
+        if(response.ok){
+            setTitleText('')
+            setSummaryText('')
+            setNotesText('')
+            setError(null)
+            console.log('New study added!', json)
+        }
+    }
 
     return (
     <div id="new-main">
-    <form class = "new-work" method = "post" action = "/new" accept-charset = "UTF-8">
+    <form class = "new-work" onSubmit={handleSubmit}>
       <div id = "new-head">
         <h2 >Create a New Study Sheet</h2>
      </div>
@@ -21,8 +51,10 @@ function CreateNotes(){
             </dt>
             <dd class = "title">
                 <input
+                type='text'
                 class = "normal"
                 onChange = {(e) => setTitleText(e.target.value)}
+                value = {title}
                 />
             </dd>
             <dt class = "summary-header">
@@ -31,8 +63,8 @@ function CreateNotes(){
             <dd class = "summary">
             <textarea 
             class = "small"
-            placeholder="Test"
             onChange = {(e) => setSummaryText(e.target.value)}
+            value = {summary}
                 />
             </dd>
             </dl>
@@ -46,21 +78,14 @@ function CreateNotes(){
             <dd class = "study required">
                 <textarea 
                 class = "large"
-                placeholder="Test"
-                onChange = {(e) => setStudyText(e.target.value)}
+                onChange = {(e) => setNotesText(e.target.value)}
+                value = {notes}
             />
             </dd>
             </dl>
         </fieldset>
-         <fieldset class = "study-set">
-          <legend class ="required">Create Studyguide</legend>
-            <ul>
-                <li>
-                    <input type='submit' name = 'save_button' value="post"
-                    />
-                </li>
-            </ul>
-        </fieldset>
+          <button>Add Studyguide</button>
+         <div className ="error"> {error} </div>
     </form>
     </div>
     )

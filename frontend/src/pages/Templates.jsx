@@ -8,7 +8,7 @@ const [studies, setStudies] = useState(null)
 
     useEffect(() => {
         const fetchStudies = async () => {
-            console.log("attempting connection to middleware....")
+            console.log("attempting fetch to middleware....")
             //Make sure to resolve during deployment
             fetch('/api/studies')
                 .then(response => response.text()) // Switch from .json() to .text()
