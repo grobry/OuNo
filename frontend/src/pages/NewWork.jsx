@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useStudiesContext } from '../hooks/useStudiesContext';
 import './NewWork.css';
 import '../Main.css';
 
@@ -34,6 +35,7 @@ const CreateNotes = () => {
             setNotesText('')
             setError(null)
             console.log('New study added!', json)
+            dispatch({type: 'CREATE_STUDIES', payload: json})
         }
     }
 
