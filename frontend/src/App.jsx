@@ -7,6 +7,7 @@ import Navbar from './components/Navbar.jsx'
 import CreateNotes from './pages/NewWork.jsx'
 import Work from './pages/Work.jsx'
 import Template from './pages/Templates.jsx'
+import UpdateNotes from './pages/UpdateWork.jsx'
 
 function App() {
   return (
@@ -30,6 +31,10 @@ function App() {
           <Route
             path = "/template"
             element = {<Template/>}
+            />
+           <Route
+            path = "/update/:id"
+            element = {<UpdateNotes/>}
             />
           </Routes>
         </div>

@@ -1,4 +1,6 @@
 import { useStudiesContext } from "../hooks/useStudiesContext"
+import { Link } from 'react-router-dom'
+
 
 function StudyDetails({study}){
     const{ dispatch }= useStudiesContext()
@@ -13,6 +15,7 @@ function StudyDetails({study}){
             dispatch({type: 'DELETE_STUDIES', payload: json})
         }
     }
+
     return (
         <div className = "study-details">
             <h2>{study.title}</h2>
@@ -20,6 +23,9 @@ function StudyDetails({study}){
             <p>{study.summary}</p>
             <p>{study.notes}</p>
             <button onClick={handleDelete}>Delete</button>
+            <Link to={'/update/' + study._id} className ="link">
+                <a>Link</a>
+            </Link>
         </div>
     )
 }

@@ -4,7 +4,7 @@ import { useStudiesContext } from '../hooks/useStudiesContext'
 import StudyDetails from '../components/StudyDetails'
 
 const Template = () => {
-    const {studies, dispatch} = useStudiesContext()
+   const {studies, dispatch} = useStudiesContext()
 
     useEffect(() => {
         const fetchStudies = async () => {

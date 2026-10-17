@@ -21,6 +21,6 @@ router.post('/', createStudy)
 router.delete('/:id', deleteStudy)
 
 //Update a workout
-router.patch('/:id', updateStudy)
+router.put('/:id', updateStudy)
 
 module.exports = router
