@@ -86,7 +86,7 @@ const CreateNotes = () => {
             </dd>
             </dl>
         </fieldset>
-          <button>Add Studyguide</button>
+          <button class = "work-button">Add Studyguide</button>
          <div className ="error"> {error} </div>
     </form>
     </div>

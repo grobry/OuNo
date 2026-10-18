@@ -112,7 +112,40 @@ form.filters, form dd, form dt, form .meta dd, form .meta dt, form.inbox {
         min-width: 0;
         float: none;
     }
+
+.work-button{
+    text-align: center;
+    border: none;
+    padding: 0.25em 0.5em;
+    margin: 0.65em;
+    margin-left:0;
+    height: auto;
+    font-size: 100%;
+    font: 100% 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Helvetica, sans-serif, 'GNU Unifont';
+    cursor:pointer;
+    background-color: #eee;
+    color: #444;
+    border: 1px solid #bbb;
+    border-bottom: 1px solid #aaa;
+}
+
+.study-details{
+    display: inline-block;
+    margin-left: -2em;
+    border: 1px solid #ddd;
+    padding: 0.5em;
+}
+
+.work-bullet{
+    list-style-type: none;
+    float: left;
+    width: 5em;
+    text-align: center;
+}
     
+.links-bar{
+    display: inline-block;
+}
 
 
 #new-main{

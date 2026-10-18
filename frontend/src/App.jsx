@@ -25,7 +25,7 @@ function App() {
             element = {<CreateNotes/>}
             />
           <Route
-            path = "/work"
+            path = "/work/:id"
             element = {<Work/>}
             />
           <Route

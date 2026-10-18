@@ -34,7 +34,7 @@ function UpdateNotes(){
             setError(json.error)
             console.log(error)
         }
-        }
+    }
   
   
    fetchStudy() 
@@ -119,7 +119,7 @@ function UpdateNotes(){
             </dd>
             </dl>
         </fieldset>
-          <button>Update Studyguide</button>
+          <button class = "work-button">Update Studyguide</button>
          <div className ="error"> {error} </div>
     </form>
     </div>

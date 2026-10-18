@@ -31,12 +31,12 @@ const Navbar = () => {
                     <ul class = "barlist">
                         <li>
                             <Link to="/Work" className = "bar-text">
-                                <a>User</a>
+                                <a>Home</a>
                             </Link>
                         </li>
                             <li>
                             <Link to="/Work" className = "bar-text">
-                                <a>User</a>
+                                <a>About</a>
                             </Link>
                         </li>
                     </ul>

@@ -1,5 +1,7 @@
 import { useStudiesContext } from "../hooks/useStudiesContext"
 import { Link } from 'react-router-dom'
+import '../pages/NewWork.css';
+
 
 
 function StudyDetails({study}){
@@ -17,15 +19,23 @@ function StudyDetails({study}){
     }
 
     return (
-        <div className = "study-details">
-            <h2>{study.title}</h2>
-            <p>Date Due: <i>{study.date}</i></p>
-            <p>{study.summary}</p>
-            <p>{study.notes}</p>
-            <button onClick={handleDelete}>Delete</button>
-            <Link to={'/update/' + study._id} className ="link">
-                <a>Link</a>
-            </Link>
+        <div class = "details">
+            <ul class = "study-details">
+                <li>
+                    <h2 class>{study.title}</h2>
+                </li>
+                <li>
+                    <div class = "links-bar">
+                        <button onClick={handleDelete} class = "work-button">Delete</button>
+                        <Link to={'/update/' + study._id} class = "work-button">
+                            <a>Edit</a>
+                        </Link>
+                        <Link to={'/work/' + study._id} class = "work-button">
+                            <a>View Study Guide</a>
+                        </Link>
+                    </div>
+                </li>
+            </ul>
         </div>
     )
 }
