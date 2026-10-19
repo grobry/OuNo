@@ -5,8 +5,8 @@ import './NewWork.css';
 import '../Main.css';
 
 
-import { MDXEditor, UndoRedo, BoldItalicUnderlineToggles, BlockTypeSelect, ListsToggle, toolbarPlugin  } from '@mdxeditor/editor'
-import { headingsPlugin, listsPlugin } from '@mdxeditor/editor'
+import { MDXEditor, UndoRedo, BoldItalicUnderlineToggles, BlockTypeSelect, CreateLink, ListsToggle, toolbarPlugin  } from '@mdxeditor/editor'
+import { headingsPlugin, listsPlugin, linkDialogPlugin, linkPlugin  } from '@mdxeditor/editor'
 
 import '@mdxeditor/editor/style.css'
 
@@ -134,14 +134,17 @@ function UpdateNotes(){
                 plugins={[
                 listsPlugin(),
                 headingsPlugin(),
+                linkDialogPlugin(),
+                linkPlugin(),
                 toolbarPlugin({
-                toolbarClassName: 'my-classname',
+                toolbarClassName: 'text-toolbar',
                 toolbarContents: () => (
                     <>
                     <UndoRedo />
                     <BoldItalicUnderlineToggles />
                     <BlockTypeSelect />
-                    <ListsToggle />
+                    <ListsToggle options={['bullet', 'number']}/>
+                    <CreateLink/>
                     </>
                 )
                 })

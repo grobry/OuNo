@@ -3,7 +3,9 @@ import './Work.css'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useStudiesContext } from '../hooks/useStudiesContext';
-// TODO:  Update placeholder mentions with real work attributes
+import { marked } from 'marked';
+import sanitizeHtml from 'sanitize-html';
+
 
 const Work = () => {
 
@@ -26,9 +28,9 @@ const Work = () => {
 
             if (response.ok){
 
-                setNotesText(json.notes);
                 setSummaryText(json.summary);
                 setTitleText(json.title);
+                setNotesText(sanitizeHtml(marked.parse(json.notes)))
             }
 
          if(!response.ok){
@@ -53,9 +55,9 @@ const Work = () => {
                     </div>
             </div>
             <div id = "work">  
-                <p>
-                {notes}
-                 </p>
+                <div dangerouslySetInnerHTML={
+                { __html: notes}}></div>
+            {notes}
             </div>
           </div>
         </div>

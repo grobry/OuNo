@@ -18,3 +18,17 @@ h1, h2, h3, h4, h5, h6, .heading {
     font-weight: 400;
     word-wrap: break-word;
 }
+
+ol, ul{
+    margin-left: 1em;
+}
+
+#work{
+
+        word-wrap: break-word;
+
+}
+
+#workskin{
+
+}
