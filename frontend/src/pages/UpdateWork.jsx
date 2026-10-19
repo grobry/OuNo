@@ -1,15 +1,30 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { useStudiesContext } from '../hooks/useStudiesContext';
 import './NewWork.css';
 import '../Main.css';
+
+
+import { MDXEditor, UndoRedo, BoldItalicUnderlineToggles, BlockTypeSelect, ListsToggle, toolbarPlugin  } from '@mdxeditor/editor'
+import { headingsPlugin, listsPlugin } from '@mdxeditor/editor'
+
+import '@mdxeditor/editor/style.css'
 
 function UpdateNotes(){
     const [title, setTitleText] = useState('');
     const [summary, setSummaryText] = useState('');
     const [notes, setNotesText] = useState('');
     const [error, setError] = useState('');
-    const [study, setStudy] = useState('')    
+    const [study, setStudy] = useState('') 
+    
+    
+      const editorRef = useRef(null)
+    
+    
+      const handleExternalUpdate = () => {
+        // 2. Use optional chaining to safely set the new content
+        editorRef.current?.setMarkdown(notes)
+      }
     
     const{ dispatch }= useStudiesContext()
     const { id } = useParams();
@@ -25,7 +40,7 @@ function UpdateNotes(){
             if (response.ok){
                 setStudy(json);
 
-                setNotesText(json.notes);
+                editorRef.current?.setMarkdown(json.notes);
                 setSummaryText(json.summary);
                 setTitleText(json.title);
             }
@@ -65,8 +80,9 @@ function UpdateNotes(){
         if(response.ok){
             setTitleText('')
             setSummaryText('')
-            setNotesText('')
+            editorRef.current?.setMarkdown('')
             setError(null)
+            handleExternalUpdate
             console.log('study updated!', json)
             dispatch({type: 'UPDATE_STUDY', payload: json})
     }
@@ -111,11 +127,27 @@ function UpdateNotes(){
                 <label for = "study-text">Study Text</label>
             </dt>
             <dd class = "study required">
-                <textarea 
-                class = "large"
-                onChange = {(e) => setNotesText(e.target.value)}
-                value = {notes}
-            />
+               <MDXEditor 
+                ref={editorRef} 
+                markdown={notes}
+                contentEditableClassName="prose"
+                plugins={[
+                listsPlugin(),
+                headingsPlugin(),
+                toolbarPlugin({
+                toolbarClassName: 'my-classname',
+                toolbarContents: () => (
+                    <>
+                    <UndoRedo />
+                    <BoldItalicUnderlineToggles />
+                    <BlockTypeSelect />
+                    <ListsToggle />
+                    </>
+                )
+                })
+            ]}
+                onChange = {(markdown) => setNotesText(markdown)}
+                />
             </dd>
             </dl>
         </fieldset>

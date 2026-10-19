@@ -1,14 +1,27 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useStudiesContext } from '../hooks/useStudiesContext';
 import './NewWork.css';
 import '../Main.css';
+
+import { MDXEditor, UndoRedo, BoldItalicUnderlineToggles, BlockTypeSelect, ListsToggle, toolbarPlugin  } from '@mdxeditor/editor'
+import { headingsPlugin, listsPlugin } from '@mdxeditor/editor'
+
+import '@mdxeditor/editor/style.css'
+
 
 const CreateNotes = () => {
     const [title, setTitleText] = useState('');
     const [summary, setSummaryText] = useState('');
     const [notes, setNotesText] = useState('');
-    const [error, setError] = useState('');    
-    
+    const [error, setError] = useState('');   
+
+    const editorRef = useRef(null)
+
+
+  const handleExternalUpdate = () => {
+    // 2. Use optional chaining to safely set the new content
+    editorRef.current?.setMarkdown(notes)
+  }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -32,8 +45,9 @@ const CreateNotes = () => {
         if(response.ok){
             setTitleText('')
             setSummaryText('')
-            setNotesText('')
+            editorRef.current?.setMarkdown('')
             setError(null)
+            handleExternalUpdate
             console.log('New study added!', json)
             dispatch({type: 'CREATE_STUDIES', payload: json})
         }
@@ -78,14 +92,32 @@ const CreateNotes = () => {
                 <label for = "study-text">Study Text</label>
             </dt>
             <dd class = "study required">
-                <textarea 
-                class = "large"
-                onChange = {(e) => setNotesText(e.target.value)}
-                value = {notes}
-            />
+                <MDXEditor 
+                ref={editorRef} 
+                markdown={''}
+                contentEditableClassName="prose"
+                plugins={[
+                listsPlugin(),
+                headingsPlugin(),
+                toolbarPlugin({
+                toolbarClassName: 'my-classname',
+                toolbarContents: () => (
+                    <>
+                    <UndoRedo />
+                    <BoldItalicUnderlineToggles />
+                    <BlockTypeSelect />
+                    <ListsToggle />
+                    </>
+                )
+                })
+            ]}
+                onChange = {(markdown) => setNotesText(markdown)}
+                />
             </dd>
             </dl>
         </fieldset>
+          <div class = "study">
+            </div>
           <button class = "work-button">Add Studyguide</button>
          <div className ="error"> {error} </div>
     </form>

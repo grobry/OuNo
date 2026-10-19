@@ -134,6 +134,7 @@ form.filters, form dd, form dt, form .meta dd, form .meta dt, form.inbox {
     margin-left: -2em;
     border: 1px solid #ddd;
     padding: 0.5em;
+    list-style: none;
 }
 
 .work-bullet{
@@ -158,4 +159,16 @@ form.filters, form dd, form dt, form .meta dd, form .meta dt, form.inbox {
 }
 
 
+#study-set{
+    list-style-type:circle; 
+    list-style: inside;
+}
+
+.prose {
+  background: white;
+}
+
+.prose strong {
+  font-weight: 600;
+}
 
